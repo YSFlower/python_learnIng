@@ -1,3 +1,4 @@
+#多进程demo using Queue
 from multiprocessing import Process
 from multiprocessing import Queue
 from time import sleep
@@ -27,7 +28,7 @@ def sub_task(q, string):
 
 def main():
     q = Queue()
-    q.put(0, block = False)
+    q.put(0)
     Process(target=sub_task, args=(q, 'Ping',)).start()
     Process(target=sub_task, args=(q, 'Pong',)).start()
 
